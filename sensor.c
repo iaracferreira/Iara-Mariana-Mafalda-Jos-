@@ -1,18 +1,9 @@
-#include <stdio.h>
-
-int main(void)
-{
-    int valor;
-    float fim1;
-    float fim2;
-
-    printf("Entrada:");
-    scanf("%d", &valor);
-
-    fim1 = valor*260.0/1023.0;
-    fim2 = fim1 - 20.0;
-    printf("Saída: %.2f\n", fim2);
-
-
-	return 0;
+# include <stdio.h>
+int main() {
+    int x;
+    double temp;
+    scanf("%d", &x);
+    temp = 260.0 * x/1023.0-20.0;
+    printf("%.2f\n", temp);
+    return 0;
 }
