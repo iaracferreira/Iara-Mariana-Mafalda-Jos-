@@ -1,5 +1,4 @@
 # include <ctype.h>
-# include <stdio.h>
 # include <stdlib.h>
 
 
@@ -11,49 +10,23 @@
                     break;
             return 1;
             }
-        }   
+        }
 
-
-int main() {
+int main () {
+    float temp;
     int x;
-    int i=0;
-    double temp;
-    char buffer[100];
-    while (i==0) {
-        fgets(buffer, 100, stdin);
-        if (eInteiro(buffer, 100)) {
-            x = atoi(buffer);
-            if (x>=0 && x<=1023) {
-                i=1;
-                temp = 260.0 * x/1023.0-20.0;
-                 if (-10.0<= temp && temp <=190.0){
-                     printf("%.2f\n", temp);
-                    return 0;
-                     }   else {
-                        printf("Valor fora da gama\n");
-                        return 0;
-                        }
-            } else {
-                continue;
-            }
-            
+    printf("Introduza o valor do sensor: ");
+    while (scanf("%d", &x) != 1) {
+        printf("Por favor introduza um número inteiro: ");
+        while (getchar() != '\n');
     }
-
+    temp = (260.0 * x) / 1023.0 - 20.0;
+    if (temp >= -10.0 && temp <= 190.0) {
+        printf("%.2f\n", temp);
+    } else {
+        printf("Valor fora da gama\n");
+    }
+    return 0;
 }
-}
 
 
-/*
-# include <stdlib.h>
-long strtol (char * string, char ** endptr, int base);  //Converte string para long.
-
-# include <stdio.h>
-int isdigit (char ch);                                  //Verifica se char é dígito ou não.
-
-# include <stdio.h>
-void fgets (char * buffer, int bufferSize, File *)     //Se FILE=stdin, vai ler um string com o máx
-                                                        //bufferSize caracteres para o string buffer.
-
-# include <stdio.h>
-int atoi (char * string);                               //Converte de string para inteiro.
-*/
