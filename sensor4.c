@@ -2,6 +2,7 @@
 
 # include <stdio.h>
 # include <math.h>
+# include <limits.h>
 
 int main () { 
     // Declaração de variáveis
@@ -13,13 +14,16 @@ int main () {
     double temperaturas[n_valores];
     double desvio1=0.0;
     int numtotallidos=0;
-    double minimo = 9999.0;
-    double maximo = -9999.0;
+    double minimo = INT_MAX;
+    double maximo = INT_MIN;
     double soma = 0.0;
     double somadesvios = 0.0;
-    
+
+    printf("Introduza o número de valores a ler:"); // Lê o número de valores a ler
+    scanf("%d", &n_valores);
+
     do {
-    printf("Introduza o valor do sensor: ");
+        printf("Introduza o valor do sensor: ");
     while (scanf("%d", &x) != 1) {
         printf("Por favor introduza um número inteiro: ");
         while (getchar() != '\n');
