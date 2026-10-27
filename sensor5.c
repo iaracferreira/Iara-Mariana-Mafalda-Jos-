@@ -3,6 +3,7 @@
 # include <math.h>
 # include <limits.h>
 
+int valoresaler (int a);
 int scan (int a);
 double temperatura(int a);
 double tempvalidação (double temp);
@@ -24,13 +25,10 @@ int main () {
     int numtotallidos=0;
     double soma = 0.0;
 
-
-    printf("Introduza o número de valores a ler:"); // Lê o número de valores a ler
-    scanf("%d", &n_valores);
+    n_valores = valoresaler(n_valores); // Lê o número de valores a ler
 
     do {
 
-        printf("Introduza o valor do sensor: ");
         x = scan(x); // Lê o valor do sensor e valida a entrada
 
     temp = temperatura(x);
@@ -47,6 +45,7 @@ int main () {
     j++;                                       //Índice do array de temperaturas e dos valores lidos
     numtotallidos++; 
     } while (x != -1 && j< n_valores);
+
     printf("\n");
     printf("Valores lidos (sensor -> temperatura):\n");
     soma = saidasvalores(valores, temperaturas, numtotallidos);
@@ -62,8 +61,17 @@ int main () {
 
 // Funções
 
+// Função para ler o número de valores a ler
+int valoresaler (int n_valores) {
+    printf("Introduza o número de valores a ler:"); // Lê o número de valores a ler
+    int a;
+    scanf("%d", &a);
+    return a;
+}
+
 // Função para ler um valor inteiro do sensor, recebe um inteiro (valor a ler no sensor) e devolve o valor lido
 int scan (int a) {
+    printf("Introduza o valor do sensor: ");
     while (scanf("%d", &a) != 1) {
         printf("Por favor introduza um número inteiro: ");
         while (getchar() != '\n');
