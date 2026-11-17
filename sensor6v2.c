@@ -2,7 +2,7 @@
 #include <string.h>
 #include <math.h>
 
-#define MAX_LEITURAS 100
+#define MAX_LEITURAS 20
 #define NUM_SENSORES 3
 
 // Estrutura de um sensor
@@ -38,6 +38,7 @@ int main(void) {
     char linha[256];    // buffer para ler a linha completa
     int instante;
     int valor;
+    int qualquer;
 
     // Sensor 1 com os respetivos dados de calibração
     strcpy(sensores[0].id, "TEMP1");
@@ -57,7 +58,7 @@ int main(void) {
         if (fgets(linha, sizeof(linha), stdin) == NULL) { //Lê uma linha do input
             break;
         }
-         int n = sscanf(linha, "%9s %d %d", id, &instante, &valor); //Lê os valores da linha e armazena nas variáveis id, instante e valor
+         int n = sscanf(linha, "%9s %d %d %d", id, &instante, &valor, &qualquer); //Lê os valores da linha e armazena nas variáveis id, instante e valor
 
          if (n<1){ 
             continue; //Ignorar linhas vazias
