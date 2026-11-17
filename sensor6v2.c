@@ -89,33 +89,35 @@ int main(void) {
         }
 
     }
+        if (total > 0){
+            /* Lista de todas as leituras */
+            printf("\nLeituras registadas (sensor instante valor -> temperatura):\n");
+            for (int i = 0; i < total; i++) {
+                printf("%s %d : %d -> %.2f\n",
+                sensores[leituras[i].sensor].id,         //Imprime o id do sensor
+                leituras[i].instante,                    //Imprime o instante da leitura
+                leituras[i].valor,                       //Imprime o valor lido no sensor
+                leituras[i].temp);                       //Imprime a temperatura calculada
+            }
 
-    /* Lista de todas as leituras */
-    printf("\nLeituras registadas (sensor instante valor -> temperatura):\n");
-    for (int i = 0; i < total; i++) {
-        printf("%s %d : %d -> %.2f\n",
-               sensores[leituras[i].sensor].id,         //Imprime o id do sensor
-               leituras[i].instante,                    //Imprime o instante da leitura
-               leituras[i].valor,                       //Imprime o valor lido no sensor
-               leituras[i].temp);                       //Imprime a temperatura calculada
-    }
-
-    /* Estatísticas de cada sensor que tenha leituras */
-    for (int s = 0; s < NUM_SENSORES; s++) {
-        int n = contar(leituras, total, s);
-        if (n > 0) {
-            printf("\n");
-            printf("Sensor %s:\n", sensores[s].id);                                 //Imprime o id do sensor
-            printf("Número de valores lidos: %d\n", n);                             //Imprime o número de leituras do sensor
-            printf("Temperatura mínima: %.2f\n", minimo(leituras, total, s));       //Imprime a temperatura mínima
-            printf("Temperatura máxima: %.2f\n", maximo(leituras, total, s));       //Imprime a temperatura máxima
-            printf("Temperatura média: %.2f\n", media(leituras, total, s));         //Imprime a temperatura média
-            printf("Desvio-padrão: %.2f\n", desvioPadrao(leituras, total, s));      //Imprime o desvio-padrão das temperaturas
-            printf("\n");
+            /* Estatísticas de cada sensor que tenha leituras */
+            for (int s = 0; s < NUM_SENSORES; s++) {
+                int n = contar(leituras, total, s);
+                if (n > 0) {
+                    printf("\n");
+                    printf("Sensor %s:\n", sensores[s].id);                                 //Imprime o id do sensor
+                    printf("Número de valores lidos: %d\n", n);                             //Imprime o número de leituras do sensor
+                    printf("Temperatura mínima: %.2f\n", minimo(leituras, total, s));       //Imprime a temperatura mínima
+                    printf("Temperatura máxima: %.2f\n", maximo(leituras, total, s));       //Imprime a temperatura máxima
+                    printf("Temperatura média: %.2f\n", media(leituras, total, s));         //Imprime a temperatura média
+                    printf("Desvio-padrão: %.2f\n", desvioPadrao(leituras, total, s));      //Imprime o desvio-padrão das temperaturas
+                    printf("\n");
+                }
+            }
+    
         }
-    }
-    return 0;
-}
+    return 0;}
+
 
 /* Devolve a posição do sensor no array de sensores, ou -1 se não existir */
 int procurarSensor(const char id[]) {
