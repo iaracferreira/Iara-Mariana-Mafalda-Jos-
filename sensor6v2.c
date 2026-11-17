@@ -117,6 +117,9 @@ int main(void) {
             }
     
         }
+        else {
+            printf("Nenhuma leitura registada.\n");
+        }
     return 0;}
 
 
