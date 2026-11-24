@@ -150,23 +150,6 @@ double validar(const Sensor *sensor, double temp, int valor){
     return 1; //Valor e temperatura válidos
 }
 
-/*
-if (valor < 0 || valor > 1023 || validacao == 0) { 
-         printf("Valor fora da gama\n");
-         //Se o valor lido ou a temperatura calculada estiver fora da gama válida, imprime mensagem de erro
-        }    else {
-            printf("%.2f\n", temp);                 //Imprime a temperatura calculada
-            leituras[total].sensor   = s;           //Armazena a posição do sensor no array de sensores
-            leituras[total].instante = instante;    //Armazena o instante da leitura
-            leituras[total].valor    = valor;       //Armazena o valor lido no sensor
-            leituras[total].temp     = temp;        //Armazena a temperatura calculada
-            total++;
-            }
-
-*/
-
-
-
 
 /* Número de leituras do sensor s */
 int contar(const Leitura leituras[], int total, int s) {
